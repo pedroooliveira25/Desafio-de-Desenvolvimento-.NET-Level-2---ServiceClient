@@ -18,21 +18,23 @@ public class DataAddress : Notification
 
     public DataAddress(string road, string district, string city, string stage, int cep, int number)
     {
-
-
-        ValidatePropertiesString(road, "Road");
-        ValidatePropertiesString(district, "District");
-        ValidatePropertiesString(city, "City");
-        ValidatePropertiesString(stage, "Stage");
-        ValidatePropertiesInt(cep, "CEP");
-        ValidatePropertiesInt(number, "Number");
-
+        ValidateInfo(road, district, city,  stage, cep, number);
 
         Road = road;
         Number = number;
         District = district;
         City = city;
         Stage = stage;
+    }
+
+    public void ValidateInfo(string road, string district, string city, string stage, int cep, int number)
+    {
+        ValidatePropertiesString(road, "Road");
+        ValidatePropertiesString(district, "District");
+        ValidatePropertiesString(city, "City");
+        ValidatePropertiesString(stage, "Stage");
+        ValidatePropertiesInt(cep, "CEP");
+        ValidatePropertiesInt(number, "Number");
     }
 
     public void Update(string road, string district, string city, string stage, int cep, int number)

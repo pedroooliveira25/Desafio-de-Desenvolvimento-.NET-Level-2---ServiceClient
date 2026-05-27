@@ -19,13 +19,7 @@ public class DataBasic : Notification
 
     public DataBasic(string name, DateTime dateOfBirth, int cpf, string email, int phone)
     {
-
-        ValidatePropertiesInt(cpf, "cpf");
-        ValidatePropertiesInt(phone, "phone");
-        ValidatePropertiesString(name, "name");
-        ValidatePropertiesString(email, "email");
-        ValidatePropertiesDateOfBirth(dateOfBirth, "date of birth");
-        ValidationBirth(dateOfBirth);
+        ValidateInfo(name, dateOfBirth, cpf, email, phone);
 
         Name = name;
         DateOfBirth = dateOfBirth;
@@ -35,19 +29,27 @@ public class DataBasic : Notification
 
     }
 
+    public void ValidateInfo(string name, DateTime dateOfBirth, int cpf, string email, int phone)
+    {
+        ValidatePropertiesInt(cpf, "cpf");
+        ValidatePropertiesInt(phone, "phone");
+        ValidatePropertiesString(name, "name");
+        ValidatePropertiesString(email, "email");
+        ValidationBirth(dateOfBirth);
+    }
+
     public bool ValidationBirth(DateTime dateOfBirth)
     {
         DateTime maioridade = DateTime.Today.AddDays(-18);
         if (dateOfBirth <= maioridade)
         {
-            ValidatePropertiesDateOfBirth(dateOfBirth, "date of birth");
-        } 
-        return true;  
+            ValidatePropertiesDate(dateOfBirth, "date of birth");
+        }
+        return true;
     }
-    
+
     public void Update(string name, DateTime dateOfBirth, int cpf, string email, int phone)
     {
-
         if (!ValidatePropertiesInt(cpf, "cpf"))
             throw new Exception("Invalid cpf");
 
@@ -60,7 +62,7 @@ public class DataBasic : Notification
         if (!ValidatePropertiesString(email, "email"))
             throw new Exception("Invalid email");
 
-        if (!ValidatePropertiesDateOfBirth(dateOfBirth, "date of birth"))
+        if (!ValidatePropertiesDate(dateOfBirth, "date of birth"))
             throw new Exception("Invalid birth");
 
         Name = name;

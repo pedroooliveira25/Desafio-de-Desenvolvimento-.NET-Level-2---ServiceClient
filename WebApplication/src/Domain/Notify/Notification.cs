@@ -58,7 +58,7 @@ public class Notification
         return true;
     }
 
-         public bool ValidatePropertiesDateOfBirth(DateTime value, string propertyName)
+         public bool ValidatePropertiesDate(DateTime value, string propertyName)
     {
 
         if (value <= DateTime.MinValue)
