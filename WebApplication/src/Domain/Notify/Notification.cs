@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
@@ -59,13 +60,13 @@ public class Notification
 
          public bool ValidatePropertiesDateOfBirth(DateTime value, string propertyName)
     {
-        
-        if (value == DateTime.MinValue)
+
+        if (value <= DateTime.MinValue)
         {
             NotificationsList.Add(new Notification
             {
-                Message = "Erro", 
-                PropertyName = "Erro"
+                Message = "Access denied -18", 
+                PropertyName = "value"
             });
             return false;
         }

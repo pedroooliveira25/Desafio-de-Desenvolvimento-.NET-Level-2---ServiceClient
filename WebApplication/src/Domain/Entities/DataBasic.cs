@@ -25,6 +25,7 @@ public class DataBasic : Notification
         ValidatePropertiesString(name, "name");
         ValidatePropertiesString(email, "email");
         ValidatePropertiesDateOfBirth(dateOfBirth, "date of birth");
+        ValidationBirth(dateOfBirth);
 
         Name = name;
         DateOfBirth = dateOfBirth;
@@ -34,6 +35,16 @@ public class DataBasic : Notification
 
     }
 
+    public bool ValidationBirth(DateTime dateOfBirth)
+    {
+        DateTime maioridade = DateTime.Today.AddDays(-18);
+        if (dateOfBirth <= maioridade)
+        {
+            ValidatePropertiesDateOfBirth(dateOfBirth, "date of birth");
+        } 
+        return true;  
+    }
+    
     public void Update(string name, DateTime dateOfBirth, int cpf, string email, int phone)
     {
 
