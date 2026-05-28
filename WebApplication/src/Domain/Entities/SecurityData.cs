@@ -13,6 +13,8 @@ public class SecurityData : Notification
         ConfirmPassword = confirmPassword; 
     }
 
+    //Criar Validações
+
      public void Update(string passwordKey, string confirmPassword)
     {
 

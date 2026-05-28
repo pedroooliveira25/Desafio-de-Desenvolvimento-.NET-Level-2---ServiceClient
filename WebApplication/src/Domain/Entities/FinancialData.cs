@@ -16,6 +16,10 @@ public class FinancialData : Notification
         Patrimony = patrimony;
     }
 
+
+
+//Criar Validações
+
     public void ValidateInfo(int finance, int patrimony)
     {
         ValidatePropertiesInt(finance, "Finance");

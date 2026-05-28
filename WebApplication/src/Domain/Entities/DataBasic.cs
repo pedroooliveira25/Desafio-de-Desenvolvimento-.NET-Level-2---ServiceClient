@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.SqlTypes;
+using System.Net.Mail;
 public class DataBasic : Notification
 {
     [Column("Name")]
@@ -8,16 +10,16 @@ public class DataBasic : Notification
     public DateTime DateOfBirth { get; set; }
 
     [Column("CPF")]
-    public int Cpf { get; set; }
+    public string Cpf { get; set; }
 
     [Column("Email")]
     public string Email { get; set; }
 
     [Column("Phone")]
-    public int Phone { get; set; }
+    public string Phone { get; set; }
 
 
-    public DataBasic(string name, DateTime dateOfBirth, int cpf, string email, int phone)
+    public DataBasic(string name, DateTime dateOfBirth, string cpf, string email, string phone)
     {
         ValidateInfo(name, dateOfBirth, cpf, email, phone);
 
@@ -26,34 +28,67 @@ public class DataBasic : Notification
         Cpf = cpf;
         Email = email;
         Phone = phone;
-
     }
 
-    public void ValidateInfo(string name, DateTime dateOfBirth, int cpf, string email, int phone)
+    public void ValidateInfo(string name, DateTime dateOfBirth, string cpf, string email, string phone)
     {
-        ValidatePropertiesInt(cpf, "cpf");
-        ValidatePropertiesInt(phone, "phone");
+        ValidateNumber(phone);
         ValidatePropertiesString(name, "name");
-        ValidatePropertiesString(email, "email");
+        IsValidEmail(email);
         ValidationBirth(dateOfBirth);
+        ValidateCpf(cpf);
     }
 
+    public bool ValidateNumber(string phone)
+    {
+        if (!ValidatePropertiesString(phone, "phone") || phone.Length == 11)
+        {
+         return false;
+        }
+        return true;    
+    } 
+
+    public bool IsValidEmail(string email)
+    {
+        if (!ValidatePropertiesString(email, "email"))
+            return false;
+        try
+        {
+            var mail = new MailAddress(email);
+            return true;
+        }
+        catch (FormatException)
+        {
+            return false; 
+        }
+    }
     public bool ValidationBirth(DateTime dateOfBirth)
     {
+        ValidatePropertiesDate(dateOfBirth, "date of birth");
+
         DateTime maioridade = DateTime.Today.AddDays(-18);
         if (dateOfBirth <= maioridade)
         {
-            ValidatePropertiesDate(dateOfBirth, "date of birth");
+           return false;
         }
         return true;
     }
+    public void ValidateCpf(string cpf)
+    {   
+        ValidatePropertiesString(cpf, "cpf");
 
-    public void Update(string name, DateTime dateOfBirth, int cpf, string email, int phone)
+        if(cpf.Length > 11)
+        {
+            throw new Exception("Cpf invalide");  
+        } 
+    }
+
+    public void Update(string name, DateTime dateOfBirth, string cpf, string email, string phone)
     {
-        if (!ValidatePropertiesInt(cpf, "cpf"))
+        if (!ValidatePropertiesString(cpf, "cpf"))
             throw new Exception("Invalid cpf");
 
-        if (!ValidatePropertiesInt(phone, "phone"))
+        if (!ValidatePropertiesString(phone, "phone"))
             throw new Exception("Invalid phone");
 
         if (!ValidatePropertiesString(name, "name"))
