@@ -64,6 +64,8 @@ public class DataBasic : Notification
     }
     public bool ValidationBirth(DateTime dateOfBirth)
     {
+        
+        
         ValidatePropertiesDate(dateOfBirth, "date of birth");
 
         DateTime maioridade = DateTime.Today.AddDays(-18);

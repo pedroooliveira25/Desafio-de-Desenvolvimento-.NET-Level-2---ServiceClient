@@ -36,8 +36,8 @@ public class Notification
         {
             NotificationsList.Add(new Notification
             {
-                Message = "Erro", 
-                PropertyName = "Erro"
+                Message = "Field {PropertyName} is required", 
+                PropertyName = propertyName
             });
             return false;
         }
@@ -50,8 +50,8 @@ public class Notification
         {
             NotificationsList.Add(new Notification
             {
-                Message = "Erro", 
-                PropertyName = "Erro"
+                Message = "Field {PropertyName} is required", 
+                PropertyName = propertyName
             });
             return false;
         }
@@ -66,7 +66,7 @@ public class Notification
             NotificationsList.Add(new Notification
             {
                 Message = "Access denied -18", 
-                PropertyName = "value"
+                PropertyName = propertyName
             });
             return false;
         }
