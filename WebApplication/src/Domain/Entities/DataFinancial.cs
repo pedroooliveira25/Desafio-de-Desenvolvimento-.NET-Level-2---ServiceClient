@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 public class FinancialData : Notification
 {
     [Column("Finance")]
-    public int Finance { get; set; }
+    public decimal Finance { get; set; }
     [Column("Patrimony")]
-    public int Patrimony { get; set; }
+    public decimal Patrimony { get; set; }
 
 
-    public FinancialData(int finance, int patrimony)
+    public FinancialData(decimal finance, decimal patrimony)
     {
         ValidateInfo(finance, patrimony);
 
@@ -20,10 +20,10 @@ public class FinancialData : Notification
 
 //Criar Validações
 
-    public void ValidateInfo(int finance, int patrimony)
+    public void ValidateInfo(decimal finance, decimal patrimony)
     {
-        ValidatePropertiesInt(finance, "Finance");
-        ValidatePropertiesInt(patrimony, "Patrimony");
+        ValidatePropertiesDecimal(finance, "Finance");
+        ValidatePropertiesDecimal(patrimony, "Patrimony");
 
         if (finance + patrimony <= 1000)
         {
@@ -31,17 +31,14 @@ public class FinancialData : Notification
         }
     }
 
-    public void Update(int finance, int patrimony)
-    {
+    public void Update(decimal finance, decimal patrimony)
+    { 
 
-        if (!ValidatePropertiesInt(finance, "Finance"))
+        if (!ValidatePropertiesDecimal(finance, "Finance"))
             throw new Exception("Invalid value");
 
-        if (!ValidatePropertiesInt(patrimony, "Patrimony"))
+        if (!ValidatePropertiesDecimal(patrimony, "Patrimony"))
             throw new Exception("Invalid patrimony");
-
     }
-
-
 }
 

@@ -58,6 +58,20 @@ public class Notification
         return true;
     }
 
+    public bool ValidatePropertiesDecimal(decimal value, string propertyName)
+    {
+        if (value <= 0)
+        {
+            NotificationsList.Add(new Notification
+            {
+                Message = "Field {PropertyName} is required", 
+                PropertyName = propertyName
+            });
+            return false;
+        }
+        return true;
+    }
+
          public bool ValidatePropertiesDate(DateTime value, string propertyName)
     {
 

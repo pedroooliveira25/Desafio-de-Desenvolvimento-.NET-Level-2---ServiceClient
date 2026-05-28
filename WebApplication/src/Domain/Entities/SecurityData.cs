@@ -15,6 +15,8 @@ public class SecurityData : Notification
 
     //Criar Validações
 
+    
+ 
      public void Update(string passwordKey, string confirmPassword)
     {
 

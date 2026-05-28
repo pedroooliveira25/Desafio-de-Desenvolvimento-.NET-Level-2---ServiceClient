@@ -88,7 +88,7 @@ public class DataBasic : Notification
     public void Update(string name, DateTime dateOfBirth, string cpf, string email, string phone)
     {
         if (!ValidatePropertiesString(cpf, "cpf"))
-            throw new Exception("Invalid cpf");
+            throw new Exception("Invalid cpf"); 
 
         if (!ValidatePropertiesString(phone, "phone"))
             throw new Exception("Invalid phone");
