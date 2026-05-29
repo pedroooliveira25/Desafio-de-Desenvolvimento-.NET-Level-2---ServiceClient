@@ -13,7 +13,8 @@ public class SecurityData : Notification
         ConfirmPassword = confirmPassword; 
     }
 
-    //Criar Validações
+    //class para criar senhas, porém eu tenho que transformar
+    //essa senha em um Hash é armazenar apenas o hash para criar comparação
 
     
  

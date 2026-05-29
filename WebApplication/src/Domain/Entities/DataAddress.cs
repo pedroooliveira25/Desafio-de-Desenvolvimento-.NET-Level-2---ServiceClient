@@ -36,7 +36,7 @@ public class DataAddress : Notification
         ValidatePropertiesString(stage, "Stage");
         ValidatePropertiesInt(cep, "CEP");
         ValidatePropertiesInt(number, "Number");
-    }
+    }  
 
     //Criar Validações
 
