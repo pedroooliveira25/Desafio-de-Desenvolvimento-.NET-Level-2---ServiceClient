@@ -2,7 +2,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlTypes;
 using System.Net.Mail;
 public class DataBasic : Notification
+
 {
+    [Column("Id")]
+    public Guid Id { get; set; }
     [Column("Name")]
     public string Name { get; set; }
 
@@ -19,34 +22,36 @@ public class DataBasic : Notification
     public string Phone { get; set; }
 
 
-    public DataBasic(string name, DateTime dateOfBirth, string cpf, string email, string phone)
+    public DataBasic(string name, DateTime dateOfBirth, string cpf, string email, string phone, Guid id)
     {
-        ValidateInfo(name, dateOfBirth, cpf, email, phone);
+        ValidateInfo(name, dateOfBirth, cpf, email, phone, id);
 
         Name = name;
         DateOfBirth = dateOfBirth;
         Cpf = cpf;
         Email = email;
         Phone = phone;
+        Id = id;
     }
 
-    public void ValidateInfo(string name, DateTime dateOfBirth, string cpf, string email, string phone)
+    public void ValidateInfo(string name, DateTime dateOfBirth, string cpf, string email, string phone, Guid id)
     {
         ValidateNumber(phone);
         ValidatePropertiesString(name, "name");
         IsValidEmail(email);
         ValidationBirth(dateOfBirth);
         ValidateCpf(cpf);
+        ValidatePropertiesGuidId(id, "Id");
     }
 
     public bool ValidateNumber(string phone)
     {
         if (!ValidatePropertiesString(phone, "phone") || phone.Length == 11)
         {
-         return false;
+            return false;
         }
-        return true;    
-    } 
+        return true;
+    }
 
     public bool IsValidEmail(string email)
     {
@@ -59,36 +64,36 @@ public class DataBasic : Notification
         }
         catch (FormatException)
         {
-            return false; 
+            return false;
         }
     }
     public bool ValidationBirth(DateTime dateOfBirth)
     {
-        
-        
+
+
         ValidatePropertiesDate(dateOfBirth, "date of birth");
 
         DateTime maioridade = DateTime.Today.AddDays(-18);
         if (dateOfBirth <= maioridade)
         {
-           return false;
+            return false;
         }
         return true;
     }
     public void ValidateCpf(string cpf)
-    {   
+    {
         ValidatePropertiesString(cpf, "cpf");
 
-        if(cpf.Length > 11)
+        if (cpf.Length > 11)
         {
-            throw new Exception("Cpf invalide");  
-        } 
+            throw new Exception("Cpf invalide");
+        }
     }
 
-    public void Update(string name, DateTime dateOfBirth, string cpf, string email, string phone)
+    public void Update(string name, DateTime dateOfBirth, string cpf, string email, string phone, Guid id)
     {
         if (!ValidatePropertiesString(cpf, "cpf"))
-            throw new Exception("Invalid cpf"); 
+            throw new Exception("Invalid cpf");
 
         if (!ValidatePropertiesString(phone, "phone"))
             throw new Exception("Invalid phone");
@@ -101,6 +106,9 @@ public class DataBasic : Notification
 
         if (!ValidatePropertiesDate(dateOfBirth, "date of birth"))
             throw new Exception("Invalid birth");
+
+        if (!ValidatePropertiesGuidId(id, "Id"))
+            throw new Exception("Invalid id");
 
         Name = name;
         DateOfBirth = dateOfBirth;

@@ -1,29 +1,30 @@
 
 using System.ComponentModel.DataAnnotations.Schema;
-public class FinancialData : Notification
+public class DataFinancial : Notification
 {
     [Column("Finance")]
     public decimal Finance { get; set; }
     [Column("Patrimony")]
     public decimal Patrimony { get; set; }
+    [Column("Id")]
+    public Guid Id { get; set; }
 
 
-    public FinancialData(decimal finance, decimal patrimony)
+    public DataFinancial(decimal finance, decimal patrimony, Guid id)
     {
-        ValidateInfo(finance, patrimony);
+        ValidateInfo(finance, patrimony, id);
 
         Finance = finance;
         Patrimony = patrimony;
+        Id = id;
     }
 
 
-
-//Criar Validações
-
-    public void ValidateInfo(decimal finance, decimal patrimony)
+    public void ValidateInfo(decimal finance, decimal patrimony, Guid id)
     {
         ValidatePropertiesDecimal(finance, "Finance");
         ValidatePropertiesDecimal(patrimony, "Patrimony");
+        ValidatePropertiesGuidId(id, "Id");
 
         if (finance + patrimony <= 1000)
         {
@@ -31,14 +32,17 @@ public class FinancialData : Notification
         }
     }
 
-    public void Update(decimal finance, decimal patrimony)
-    { 
+    public void Update(decimal finance, decimal patrimony, Guid id)
+    {
 
         if (!ValidatePropertiesDecimal(finance, "Finance"))
             throw new Exception("Invalid value");
 
         if (!ValidatePropertiesDecimal(patrimony, "Patrimony"))
             throw new Exception("Invalid patrimony");
+
+        if (!ValidatePropertiesGuidId(id, "Id"))
+            throw new Exception("Invalid id");
     }
 }
 

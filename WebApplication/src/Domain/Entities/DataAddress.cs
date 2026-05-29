@@ -2,6 +2,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.AccessControl;
 public class DataAddress : Notification
 {
+    [Column("Id")]
+    public Guid Id {get; set;} 
     [Column("Road")]
     private string Road { get; set; }
     [Column("Number")]
@@ -17,18 +19,20 @@ public class DataAddress : Notification
 
 
 
-    public DataAddress(string road, string district, string city, string stage, int cep, int number)
+    public DataAddress(string road, string district, string city, string stage, int cep, int number, Guid id)
     {
-        ValidateInfo(road, district, city,  stage, cep, number);
+        ValidateInfo(road, district, city,  stage, cep, number, id);
 
         Road = road;
-        Number = number;
         District = district;
         City = city;
         Stage = stage;
+        Cep = cep;
+        Number = number;
+        Id = id; 
     }
 
-    public void ValidateInfo(string road, string district, string city, string stage, int cep, int number)
+    public void ValidateInfo(string road, string district, string city, string stage, int cep, int number, Guid id)
     {
         ValidatePropertiesString(road, "Road");
         ValidatePropertiesString(district, "District");
@@ -36,11 +40,12 @@ public class DataAddress : Notification
         ValidatePropertiesString(stage, "Stage");
         ValidatePropertiesInt(cep, "CEP");
         ValidatePropertiesInt(number, "Number");
+        ValidatePropertiesGuidId(id, "Id"); 
     }  
 
     //Criar Validações
 
-    public void Update(string road, string district, string city, string stage, int cep, int number)
+    public void Update(string road, string district, string city, string stage, int cep, int number, Guid id)
     
     {
 
@@ -58,11 +63,14 @@ public class DataAddress : Notification
 
         if (!ValidatePropertiesInt(cep, "CEP"))
             throw new Exception("Invalid cep");
+        if (!ValidatePropertiesGuidId(id, "Id"))
+            throw new Exception("Invalid id");
 
         Road = road;
         Number = number;
         District = district;
         City = city;
         Stage = stage;
+        Id = id;
     }
 }

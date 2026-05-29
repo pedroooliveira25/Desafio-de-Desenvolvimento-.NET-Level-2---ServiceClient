@@ -1,27 +1,29 @@
 public class CreatePassword
 {
-    public readonly ICrudRepository<SecurityData> _crudRepository;
+    public readonly ICrudRepository<DataSecurity> _crudRepository;
     public readonly IPasswordHasher _passwordHasher;
 
-    public CreatePassword(ICrudRepository<SecurityData> crudRepository, IPasswordHasher passwordHasher)
+    public CreatePassword(ICrudRepository<DataSecurity> crudRepository, IPasswordHasher passwordHasher)
     {
         _crudRepository = crudRepository;
         _passwordHasher = passwordHasher; 
     }
 
-    public async Task<SecurityData> Execute (string passwordKey, string confirmPassword)
+    public async Task<DataSecurity> Execute (string passwordKey, string confirmPassword, Guid id)
     {
-        IPasswordHasher service = new PasswordHasher(); 
 
-        var hash = service.Hash(passwordKey);
-        var isVerify = service.Verify(passwordKey, hash);
+
+        var hash = _passwordHasher.Hash(passwordKey);
+        var isVerify = _passwordHasher.Verify(passwordKey, hash);
+
 
         if(!isVerify)
         throw new Exception("Invalid password");
 
-        var password = new SecurityData(
+        var password = new DataSecurity(
             passwordKey,
-            confirmPassword
+            confirmPassword,
+            id
         ); 
 
         await _crudRepository.AddAsync();

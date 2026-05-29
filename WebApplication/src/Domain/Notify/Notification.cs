@@ -9,26 +9,26 @@ public class Notification
         NotificationsList = new List<Notification>();
     }
 
-    [JsonIgnore]    
+    [JsonIgnore]
     [NotMapped]
-    public string? PropertyName{ get; set; }
+    public string? PropertyName { get; set; }
 
     [JsonIgnore]
     [NotMapped]
 
     public string? Message { get; set; }
 
-    public List<Notification> NotificationsList {get; private set;}
+    public List<Notification> NotificationsList { get; private set; }
 
     public void Notify(string message, string propertyName)
     {
         NotificationsList.Add(new Notification
         {
-            Message = message, 
+            Message = message,
             PropertyName = propertyName
-        }); 
+        });
     }
-    
+
 
     public bool ValidatePropertiesString(string value, string propertyName)
     {
@@ -36,21 +36,21 @@ public class Notification
         {
             NotificationsList.Add(new Notification
             {
-                Message = "Field {PropertyName} is required", 
+                Message = "Field {PropertyName} is required",
                 PropertyName = propertyName
             });
             return false;
         }
-        return true; 
+        return true;
     }
 
-     public bool ValidatePropertiesInt(int value, string propertyName)
+    public bool ValidatePropertiesInt(int value, string propertyName)
     {
         if (value <= 0)
         {
             NotificationsList.Add(new Notification
             {
-                Message = "Field {PropertyName} is required", 
+                Message = "Field {PropertyName} is required",
                 PropertyName = propertyName
             });
             return false;
@@ -64,7 +64,7 @@ public class Notification
         {
             NotificationsList.Add(new Notification
             {
-                Message = "Field {PropertyName} is required", 
+                Message = "Field {PropertyName} is required",
                 PropertyName = propertyName
             });
             return false;
@@ -72,23 +72,37 @@ public class Notification
         return true;
     }
 
-         public bool ValidatePropertiesDate(DateTime value, string propertyName)
+    public bool ValidatePropertiesDate(DateTime value, string propertyName)
     {
 
         if (value <= DateTime.MinValue)
         {
             NotificationsList.Add(new Notification
             {
-                Message = "Access denied -18", 
+                Message = "Access denied -18",
                 PropertyName = propertyName
             });
             return false;
         }
-        return true; 
+        return true;
+    }
+
+    public bool ValidatePropertiesGuidId(Guid id, string propertyName)
+    {
+        if (id == Guid.Empty)
+        {
+            NotificationsList.Add(new Notification
+            {
+                Message = "Field {propertyName} is required",
+                PropertyName = propertyName
+            });
+            return false;
+        }
+        return true;
     }
 
 
-    
+
 
 
 }
