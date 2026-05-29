@@ -1,4 +1,4 @@
-public interface Crud<T>
+public interface ICrudRepository<T>
 {
     Task AddAsync();
     Task<T> GetByIdAsync();

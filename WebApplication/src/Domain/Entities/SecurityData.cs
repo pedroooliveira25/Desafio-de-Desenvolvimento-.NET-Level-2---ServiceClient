@@ -13,11 +13,6 @@ public class SecurityData : Notification
         ConfirmPassword = confirmPassword; 
     }
 
-    //class para criar senhas, porém eu tenho que transformar
-    //essa senha em um Hash é armazenar apenas o hash para criar comparação
-
-    
- 
      public void Update(string passwordKey, string confirmPassword)
     {
 
