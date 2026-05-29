@@ -1,5 +1,5 @@
 using System.Text.Json;
-public class ViaCepClient 
+public class ViaCepClient : IViaCepClient
 {
     private readonly HttpClient _httpClient;
 
@@ -10,20 +10,18 @@ public class ViaCepClient
     }
 
     //Criando metodo assincrono para pegar a request e converter para string
-    public async Task<string> JsonConvert(string cep)
+    public async Task<ViaCepDTOs> GetCepAsync(string cep)
     {
         var response = await _httpClient.GetAsync(
             $"https://viacep.com.br/ws/{cep}/json/"
         );
 
-        return await response.Content.ReadAsStringAsync();
-    }
-    //Agora aqui eu vou converter a string para objeto
-    public async Task<ViaCepDTOs> GetCep(string cep)
-    {
-        string json  = await JsonConvert(cep);
+        response.EnsureSuccessStatusCode();
 
-       return JsonSerializer.Deserialize<ViaCepDTOs>(json); 
+        var json = await response.Content.ReadAsStringAsync();
+
+        return JsonSerializer.Deserialize<ViaCepDTOs>(json);
     }
+    
 
 }
