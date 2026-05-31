@@ -7,10 +7,12 @@ public class DataSecurity : Notification
     [Column("Password")]
     public string Password{get; set;}
     public string ConfirmPassword{get; set;}
-    public DataSecurity(string passwordKey, string confirmPassword, Guid id)
+    [Column("Hash")]
+    public string Hash {get; set;}
+    public DataSecurity(string passwordKey, string confirmPassword, Guid id, string hash)
     {
 
-        ValidateInfo(passwordKey, confirmPassword, id);
+        ValidateInfo(passwordKey, confirmPassword, id, hash);
 
         Id = id;
         Password = passwordKey;
@@ -18,18 +20,22 @@ public class DataSecurity : Notification
     }
 
 
-    public void ValidateInfo(string passwordKey, string confirmPassword, Guid id)
+    public void ValidateInfo(string passwordKey, string confirmPassword, Guid id, string hash)
     {
         ValidatePropertiesString(passwordKey, "Password");
         ValidatePropertiesString(confirmPassword, "Confirm");
+        ValidatePropertiesString(hash, "Hash");
         ValidatePropertiesGuidId(id, "Id");
     }
 
-     public void Update(string passwordKey, string confirmPassword, Guid id)
+     public void Update(string passwordKey, string confirmPassword, Guid id, string hash)
     {
 
         if (!ValidatePropertiesString(passwordKey, "Password"))
             throw new Exception("Invalid password");
+
+         if (!ValidatePropertiesString(hash, "Hash"))
+            throw new Exception("Invalid hash");
 
         if (!ValidatePropertiesString(confirmPassword, "Confirm"))
             throw new Exception("Password is diferent");
