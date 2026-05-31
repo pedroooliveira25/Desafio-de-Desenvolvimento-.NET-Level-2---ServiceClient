@@ -16,8 +16,7 @@ public class CreateDataBasic
            cpf,
            email,
            phone,
-           id
-           
+           id 
         ); 
         
         await _crudRepository.AddAsync(dataBasic);
