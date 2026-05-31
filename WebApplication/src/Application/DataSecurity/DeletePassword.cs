@@ -16,8 +16,6 @@ public class DeletePassword
 
         await _crudRepository.DeleteAsync(password);
 
-    }
-
-     
+    } 
 
 }
