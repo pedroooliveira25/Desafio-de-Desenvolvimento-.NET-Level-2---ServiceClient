@@ -1,21 +1,20 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Security.AccessControl;
 public class DataAddress : Notification
 {
     [Column("Id")]
     public Guid Id {get; set;} 
     [Column("Road")]
-    private string Road { get; set; }
+    public string Road { get; set; }
     [Column("Number")]
-    private int Number { get; set; }
+    public int Number { get; set; }
     [Column("District")]
-    private string District { get; set; }
+    public string District { get; set; }
     [Column("City")]
-    private string City { get; set; }
+    public string City { get; set; }
     [Column("Stage")]
-    private string Stage { get; set; }
+    public string Stage { get; set; }
     [Column("Cep")]
-    private int Cep { get; set; }
+    public int Cep { get; set; }
 
 
 
@@ -43,7 +42,6 @@ public class DataAddress : Notification
         ValidatePropertiesGuidId(id, "Id"); 
     }  
 
-    //Criar Validações
 
     public void Update(string road, string district, string city, string stage, int cep, int number, Guid id)
     
