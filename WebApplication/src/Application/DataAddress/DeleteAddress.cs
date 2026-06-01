@@ -14,7 +14,7 @@ public class DeleteAddress
         if(dataAddress == null)
         throw new Exception ("Address not found");
 
-        await _crudRepository.DeleteAsync(dataAddress);
+        await _crudRepository.DeleteAsync(id);
 
     } 
 }
