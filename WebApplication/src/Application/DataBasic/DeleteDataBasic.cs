@@ -14,7 +14,7 @@ public class DeleteDataBasic
         if(dataBasic == null)
         throw new Exception ("Date basic not found");
 
-        await _crudRepository.DeleteAsync(dataBasic);
+        await _crudRepository.DeleteAsync(id);
 
     } 
 }
