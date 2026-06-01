@@ -55,6 +55,7 @@ public class ControllerPassword : ControllerBase
         return NotFound();    
 
         dataSecurity.PasswordKey = _passwordHasher.Hash(request.Password);
+        
         await _crudRepository.UpdateAsync(dataSecurity);
         await _crudRepository.SaveChangesAsync();
 

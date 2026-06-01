@@ -7,15 +7,14 @@ public class CreateFinancial
         _crudRepository = crudRepository;
     }
 
-    public async Task<DataFinancial> Execute (decimal finance, decimal patrimony, Guid id)
+    public async Task<DataFinancial> Execute (DataFinancialDTOs request)
     {
        
         var financial = new DataFinancial(
-           finance,
-           patrimony,
-           id
-           
-        ); 
+        request.Finance,
+        request.Patrimony,
+        request.Id
+    ); 
         
         await _crudRepository.AddAsync(financial);
         return financial;
