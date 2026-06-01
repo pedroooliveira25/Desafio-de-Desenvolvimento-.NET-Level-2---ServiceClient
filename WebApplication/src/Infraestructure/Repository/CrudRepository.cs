@@ -1,38 +1,45 @@
-public class CrudRepository<T> : ICrudRepository<T>
-{
-    private readonly AppDbContext _context;
+using MongoDB.Driver;
 
-    public CrudRepository(AppDbContext context)
+public class CrudRepository<T> : ICrudRepository<T> where T : class
+{
+    private readonly IMongoCollection<T> _collection;
+
+    public CrudRepository(IMongoDatabase database)
     {
-        _context = context;
+        _collection = database.GetCollection<T>(typeof(T).Name);
     }
 
     public async Task AddAsync(T entity)
     {
-        await _context.Set<T>().AddAsync(entity);
+        await _collection.InsertOneAsync(entity);
     }
 
     public async Task<T> GetByIdAsync(Guid id)
     {
-        return await _context.Set<T>().FindAsync(id);
+        
+        var filter = Builders<T>.Filter.Eq("Id", id);
+
+        return await _collection.Find(filter).FirstOrDefaultAsync();
     }
 
-    public Task UpdateAsync(T entity)
+    public async Task UpdateAsync(T entity)
     {
-        _context.Set<T>().Update(entity);
-        return Task.CompletedTask;
+        var id = entity.GetType().GetProperty("Id")?.GetValue(entity);
+
+        var filter = Builders<T>.Filter.Eq("Id", id);
+
+        await _collection.ReplaceOneAsync(filter, entity);
     }
 
     public async Task DeleteAsync(Guid id)
     {
-        var entity = await _context.Set<T>().FindAsync(id);
+        var filter = Builders<T>.Filter.Eq("Id", id);
 
-        if (entity != null)
-            _context.Set<T>().Remove(entity);
+        await _collection.DeleteOneAsync(filter);
     }
 
-    public async Task SaveChangesAsync()
+    public Task SaveChangesAsync()
     {
-        await _context.SaveChangesAsync();
+        return Task.CompletedTask;
     }
 }
