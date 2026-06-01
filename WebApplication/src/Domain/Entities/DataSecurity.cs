@@ -5,27 +5,27 @@ public class DataSecurity : Notification
     [Column("Id")]
     public Guid Id {get; set;} 
     [Column("Password")]
-    public string Password{get; set;}
+    public string PasswordKey{get; set;}
     public string ConfirmPassword{get; set;}
     [Column("Hash")]
     public string Hash {get; set;}
-    public DataSecurity(string passwordKey, string confirmPassword, Guid id, string hash)
+    public DataSecurity(string passwordKey, string confirmPassword, string hash)
     {
 
-        ValidateInfo(passwordKey, confirmPassword, id, hash);
+        ValidateInfo(passwordKey, confirmPassword, hash);
 
-        Id = id;
-        Password = passwordKey;
+        Id = Guid.NewGuid();
+        PasswordKey = passwordKey;
         ConfirmPassword = confirmPassword; 
     }
 
 
-    public void ValidateInfo(string passwordKey, string confirmPassword, Guid id, string hash)
+    public void ValidateInfo(string passwordKey, string confirmPassword, string hash)
     {
         ValidatePropertiesString(passwordKey, "Password");
         ValidatePropertiesString(confirmPassword, "Confirm");
         ValidatePropertiesString(hash, "Hash");
-        ValidatePropertiesGuidId(id, "Id");
+       
     }
 
      public void Update(string passwordKey, string confirmPassword, Guid id, string hash)

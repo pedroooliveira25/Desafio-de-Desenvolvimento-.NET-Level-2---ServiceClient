@@ -9,18 +9,22 @@ public class CreatePassword
         _passwordHasher = passwordHasher; 
     }
 
-    public async Task<DataSecurity> Execute (string passwordKey, string confirmPassword, Guid id)
+    public async Task<DataSecurity> Execute (RequestPasswordDtos requestPasswordDtos)
     {
-        if(passwordKey != confirmPassword)
+        if(requestPasswordDtos.Password != requestPasswordDtos.ConfirmPassword)
         throw new Exception("Passwords do not match");
 
-        var hash = _passwordHasher.Hash(passwordKey);
+       if (string.IsNullOrWhiteSpace(requestPasswordDtos.Password))
+        {
+            throw new Exception("Password cannot be empty or space");
+        }
+
+        var hash = _passwordHasher.Hash(requestPasswordDtos.Password);
        
         var password = new DataSecurity(
-            hash,
-            passwordKey,
-            id,
-            confirmPassword
+            requestPasswordDtos.Password,
+            requestPasswordDtos.ConfirmPassword,
+            hash
            
         ); 
 
