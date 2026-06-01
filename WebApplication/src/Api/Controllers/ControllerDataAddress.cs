@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("api/dataAddress")]
+[Route("api/address")]
 public class ControllerDataAddress: ControllerBase
 {
     public readonly CreateAddress _createDataAddress;
@@ -17,7 +17,7 @@ public class ControllerDataAddress: ControllerBase
     }
   
     [Authorize]
-    [HttpPost("set-address")]
+    [HttpPost()]
     public async Task<IActionResult> SetAddress ([FromBody] DataAddressDTOs request)
     {
          if (request == null)

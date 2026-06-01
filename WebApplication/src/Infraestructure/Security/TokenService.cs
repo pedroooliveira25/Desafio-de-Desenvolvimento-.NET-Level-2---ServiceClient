@@ -15,9 +15,12 @@ public class TokenService : ITokenService
     }
     public string GenerateToken(Guid userId)
     {
-        var key = _configuration["Jwt:Key"];
-    var issuer = _configuration["Jwt:Issuer"];
-    var audience = _configuration["Jwt:Audience"];
+    var key = _configuration["Jwt:Key"]
+        ?? throw new Exception("Jwt:Key não configurado no appsettings.json");
+    var issuer = _configuration["Jwt:Issuer"]
+        ?? throw new Exception("Jwt:Issuer não configurado");;
+    var audience = _configuration["Jwt:Audience"]
+        ?? throw new Exception("Jwt:Audience não configurado");;
 
     var claims = new[]
     {

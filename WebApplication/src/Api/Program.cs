@@ -18,6 +18,8 @@ builder.Services.AddScoped<CreateFinancial>();
 builder.Services.AddScoped<CreateAddress>();
 builder.Services.AddScoped<CreateDataBasic>();
 
+builder.Services.AddAuthorization();
+
 
 
 builder.Services.AddSingleton<IMongoDatabase>(sp =>
@@ -42,6 +44,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     {
         var config = builder.Configuration;
 
+        var key = config.GetValue<string>("Jwt:Key");
+        var issuer = config.GetValue<string>("Jwt:Issuer");
+        var audience = config.GetValue<string>("Jwt:Audience");
+
+        if (string.IsNullOrEmpty(key))
+            throw new Exception("Jwt:Key não encontrado no appsettings");
+
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
@@ -49,10 +58,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
 
-            ValidIssuer = config["Jwt:Issuer"],
-            ValidAudience = config["Jwt:Audience"],
+            ValidIssuer = issuer,
+            ValidAudience = audience,
+
             IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(config["Jwt:Key"]))
+                Encoding.UTF8.GetBytes(key))
         };
     });
 
@@ -62,6 +72,9 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 
