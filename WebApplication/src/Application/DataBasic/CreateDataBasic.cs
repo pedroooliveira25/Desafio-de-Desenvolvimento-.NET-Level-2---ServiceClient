@@ -7,16 +7,16 @@ public class CreateDataBasic
         _crudRepository = crudRepository;
     }
 
-    public async Task<DataBasic> Execute (string name, DateTime dateOfBirth, string cpf, string email, string phone, Guid id)
+    public async Task<DataBasic> Execute (DataBasicDTOs request)
     {
        
         var dataBasic = new DataBasic(
-           name,
-           dateOfBirth,
-           cpf,
-           email,
-           phone,
-           id 
+           request.Name,
+           request.DateOfBith,
+           request.Cpf,
+           request.Email,
+           request.Phone,
+           request.Id
         ); 
         
         await _crudRepository.AddAsync(dataBasic);

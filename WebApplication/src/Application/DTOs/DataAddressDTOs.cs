@@ -13,6 +13,10 @@ public class DataAddressDTOs
     public string Stage { get; private set; }
     [Required]
     public int Cep { get; private set; }
+    [Required]
+    public int Number { get; private set; }
+    [Required]
+    public Guid Id { get; private set; }
 
 }
 

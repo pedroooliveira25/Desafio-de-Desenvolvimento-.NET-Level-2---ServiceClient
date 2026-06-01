@@ -14,7 +14,7 @@ public class DeletePassword
         if(password == null)
         throw new Exception ("Password not found");
 
-        await _crudRepository.DeleteAsync(password);
+        await _crudRepository.DeleteAsync(id);
 
     } 
 

@@ -7,17 +7,17 @@ public class CreateAddress
         _crudRepository = crudRepository;
     }
 
-    public async Task<DataAddress> Execute (string road, string district, string city, string stage, int cep, int number, Guid id)
+    public async Task<DataAddress> Execute (DataAddressDTOs request)
     {
        
         var dataAddress = new DataAddress(
-           road,
-           district,
-           city,
-           stage,
-           cep,
-           number,
-           id 
+           request.Road,
+           request.District,
+           request.City,
+           request.Stage,
+           request.Cep,
+           request.Number,
+           request.Id
         ); 
         
         await _crudRepository.AddAsync(dataAddress);

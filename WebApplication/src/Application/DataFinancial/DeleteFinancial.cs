@@ -14,7 +14,7 @@ public class DeleteFinancial
         if(financial == null)
         throw new Exception ("Date financial not found");
 
-        await _crudRepository.DeleteAsync(financial);
+        await _crudRepository.DeleteAsync(id);
 
     } 
 
