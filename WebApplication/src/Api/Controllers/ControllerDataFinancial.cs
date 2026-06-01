@@ -56,7 +56,6 @@ public class ControllerDataFinancial : ControllerBase
         dataFinancial.Patrimony = request.Patrimony;
         
         await _crudRepository.UpdateAsync(dataFinancial);
-        await _crudRepository.SaveChangesAsync();
 
         return NoContent();
 

@@ -59,7 +59,6 @@ public class ControllerDataBasic: ControllerBase
         dataBasic.Phone = request.Phone;
         
         await _crudRepository.UpdateAsync(dataBasic);
-        await _crudRepository.SaveChangesAsync();
 
         return NoContent();
     }

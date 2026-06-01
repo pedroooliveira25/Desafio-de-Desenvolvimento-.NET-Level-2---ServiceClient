@@ -60,7 +60,6 @@ public class ControllerDataAddress: ControllerBase
         address.Number = request.Number;
         
         await _crudRepository.UpdateAsync(address);
-        await _crudRepository.SaveChangesAsync();
 
         return NoContent();
     }
