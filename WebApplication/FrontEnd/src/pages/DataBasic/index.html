@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-bt">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -10,54 +10,95 @@
 </head>
 
 <body>
+
     <div class="container">
+
         <div class="form-image">
-            <img src="assets/img/log.svg" alt="">
+            <img src="assets/img/log.svg" alt="logo">
         </div>
+
+   
         <div class="form">
-            <form action="#">
+
+            <form action="#" method="post">
+
+            
                 <div class="form-header">
+
                     <div class="title">
                         <h1>Cadastre-se</h1>
                     </div>
+
                     <div class="login-button">
-                        <button><a href="#">Entrar</a></button>
+                        <button type="button">Entrar</button>
                     </div>
+
                 </div>
-              
+
                 <div class="input-group">
+
                     <div class="input-box">
-                        <label for="firstName">Nome</label>
-                        <input id="firstname" type="text" name="firstName" placeholder="Digite seu nome completo"
-                            required>
+                        <label for="name">Nome</label>
+                        <input 
+                            id="name"
+                            name="name"
+                            type="text"
+                            placeholder="Digite seu nome completo"
+                            required
+                        >
                     </div>
+
                     <div class="input-box">
-                        <label for="lastName">Cpf</label>
-                        <input id="lastname" type="text" name="lastName" placeholder="Digite seu cpf" required>
+                        <label for="cpf">CPF</label>
+                        <input 
+                            id="cpf"
+                            name="cpf"
+                            type="text"
+                            placeholder="Digite seu CPF"
+                            required
+                        >
                     </div>
+
                     <div class="input-box">
                         <label for="email">E-mail</label>
-                        <input id="email" type="email" name="email" placeholder="Digite melhor email" required>
+                        <input 
+                            id="email"
+                            name="email"
+                            type="email"
+                            placeholder="Digite seu e-mail"
+                            required
+                        >
                     </div>
+
                     <div class="input-box">
-                        <label for="DateOfBirth">Data de Nascimento</label>
-                        <input id="nascimento" type="date" name="DateOfBirth"
-                            placeholder="Digite sua data de nascimento" required>
+                        <label for="dateOfBirth">Data de Nascimento</label>
+                        <input 
+                            id="dateOfBirth"
+                            name="dateOfBirth"
+                            type="date"
+                            required
+                        >
                     </div>
+
                     <div class="input-box">
-                        <label for="Cpf">Cpf</label>
-                        <input id="cpf" type="text" name="" placeholder="Digite seu CPF" required>
+                        <label for="phone">Telefone</label>
+                        <input 
+                            id="phone"
+                            name="phone"
+                            type="tel"
+                            placeholder="(xx) xxxx-xxxx"
+                            required
+                        >
                     </div>
-                    <div class="input-box">
-                        <label for="Telefone">Telefone</label>
-                        <input id="telefone" type="tel" name="" placeholder="(xx) XXXX-XXXXX" required>
-                    </div>
+
                 </div>
+
             </form>
 
         </div>
 
     </div>
+
 </body>
 
 </html>
