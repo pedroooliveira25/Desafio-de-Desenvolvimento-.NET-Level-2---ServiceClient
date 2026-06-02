@@ -167,6 +167,10 @@ body {
     display: flex;
     justify-content: flex-end;
     margin-top: 2rem;
+
+    position: absolute;
+    top: 600px;
+    right: 50px;
 }
 
 .login-button button {
