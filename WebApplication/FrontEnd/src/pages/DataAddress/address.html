@@ -14,16 +14,16 @@
     <div class="container">
 
         <div class="form-image">
-            <img src="assets/img/19197147.png" alt="logo">
+            <img src="assets/img/mapa-3d.png" alt="logo">
         </div>
        
         <div class="form">
 
             <form action="#" method="post">
                  <div class="steps">
-                    <div class="step">1</div>
-                    <div class="step active">2</div>
-                    <div class="step">3</div>
+                    <a href="../DataBasic/index.html" class="step">1</a>
+                    <a href="../DataFinancial/financeiro.html" class="step">2</a>
+                    <div class="step active">3</div>
                     <div class="step">4</div>
                     <div class="step">5</div>
                 </div>
@@ -31,7 +31,7 @@
                 <div class="form-header">
 
                     <div class="title">
-                        <h1>Dados Financeiros</h1>
+                        <h1>Dados Residenciais</h1>
                     </div>
 
                 <div class="form-logo">
@@ -45,63 +45,63 @@
                 <div class="input-group">
 
                     <div class="input-box">
-                        <label for="name">Rua::</label>
+                        <label for="Rua">Rua:</label>
                         <input 
-                            id="name"
-                            name="name"
+                            id="rua"
+                            name="rua"
                             type="text"
-                            placeholder="Digite seu patrimônio"
+                            placeholder="Digite seu endereço..."
+                            required
+                        >
+                    </div>
+                     <div class="input-box">
+                        <label for="cpf">Número:</label>
+                        <input 
+                            id="numero"
+                            name="numero"
+                            type="text"
+                            placeholder="N°"
+                            required
+                        >
+                    </div>
+                     <div class="input-box">
+                        <label for="bairro">Bairro:</label>
+                        <input 
+                            id="bairro"
+                            name="bairro"
+                            type="text"
+                            placeholder="Digite seu bairro..."
+                            required
+                        >
+                    </div>
+                     <div class="input-box">
+                        <label for="cidade">Cidade:</label>
+                        <input 
+                            id="cidade"
+                            name="cidade"
+                            type="cidade"
+                            placeholder="Cidade..."
+                            required
+                        >
+                    </div>
+                    <div class="input-box">
+                        <label for="cpf">Estado:</label>
+                        <input 
+                            id="cpf"
+                            name="cpf"
+                            type="text"
+                            placeholder="Digite seu renda..."
                             required
                         >
                     </div>
 
                     <div class="input-box">
-                        <label for="cpf">Número:</label>
+                        <label for="cep">CEP:</label>
                         <input 
-                            id="cpf"
-                            name="cpf"
+                            id="cep"
+                            name="cep"
                             type="text"
-                            placeholder="Digite seu renda"
-                            required
-                        >
-                    </div>
-                     <div class="input-box">
-                        <label for="cpf">Número:</label>
-                        <input 
-                            id="cpf"
-                            name="cpf"
-                            type="text"
-                            placeholder="Digite seu renda"
-                            required
-                        >
-                    </div>
-                     <div class="input-box">
-                        <label for="cpf">Bairro:</label>
-                        <input 
-                            id="cpf"
-                            name="cpf"
-                            type="text"
-                            placeholder="Digite seu renda"
-                            required
-                        >
-                    </div>
-                     <div class="input-box">
-                        <label for="cpf">Cidade:</label>
-                        <input 
-                            id="cpf"
-                            name="cpf"
-                            type="text"
-                            placeholder="Digite seu renda"
-                            required
-                        >
-                    </div>
-                    <div class="input-box">
-                        <label for="cpf">Estado::</label>
-                        <input 
-                            id="cpf"
-                            name="cpf"
-                            type="text"
-                            placeholder="Digite seu renda"
+                            placeholder="Digite seu CEP..."
                             required
                         >
                     </div>
@@ -117,7 +117,7 @@
 
                     <button
                         type="button"
-                        onclick="window.location.href='../DataAddress/address.html'">
+                        onclick="window.location.href='../DataSecurity/seguranca.html'">
                         Próximo
                     </button>
 
