@@ -14,15 +14,15 @@
     <div class="container">
 
         <div class="form-image">
-            <img src="assets/img/LogoFu.png" alt="logo">
+            <img src="assets/img/19197147.png" alt="logo">
         </div>
        
         <div class="form">
 
             <form action="#" method="post">
                  <div class="steps">
-                    <div class="step active">1</div>
-                    <div class="step">2</div>
+                    <div class="step">1</div>
+                    <div class="step active">2</div>
                     <div class="step">3</div>
                     <div class="step">4</div>
                     <div class="step">5</div>
@@ -41,17 +41,14 @@
 
                 </div>
 
-                 <div class="login-button">
-                        <button type="button">Próximo</button>
-                </div>
 
                 <div class="input-group">
 
                     <div class="input-box">
                         <label for="name">Patrimônio:</label>
                         <input 
-                            id="name"
-                            name="name"
+                            id="patrimonio"
+                            name="patrimonio"
                             type="text"
                             placeholder="Digite seu patrimônio"
                             required
@@ -59,15 +56,30 @@
                     </div>
 
                     <div class="input-box">
-                        <label for="cpf">Renda:</label>
+                        <label for="renda">Renda:</label>
                         <input 
-                            id="cpf"
-                            name="cpf"
+                            id="renda"
+                            name="renda"
                             type="text"
                             placeholder="Digite seu renda"
                             required
                         >
                     </div>
+
+                </div>
+                <div class="navigation-buttons">
+
+                    <button
+                        type="button"
+                        onclick="history.back()">
+                        Voltar
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="window.location.href='../DataAddress/address.html'">
+                        Próximo
+                    </button>
 
                 </div>
 

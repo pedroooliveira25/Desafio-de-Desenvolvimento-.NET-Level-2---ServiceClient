@@ -36,9 +36,9 @@ body {
 }
 
 .form-image img {
-    width:90rem;
-    height: 68rem;
-    margin-left: -120px;
+    width:70rem;
+    height: 50rem;
+    margin-left: -10px;
 }
 
 
@@ -76,7 +76,9 @@ body {
 
 .form-header {
     width: 100%;
-    margin-bottom: 3rem;
+    min-height: 100px;
+    margin-bottom: 10rem;
+
     display: flex;
     justify-content: space-between;
     align-items: end;
@@ -90,11 +92,12 @@ body {
 .form-header h1::after {
     content: "";
     display: block;
-    width: 5rem;
+    width: 20rem;
     height: 0.3rem;
     background: linear-gradient(90deg, #4f46e5, #7c3aed);
     margin-top: 0.5rem;
     border-radius: 10px;
+
 }
 
 
@@ -164,37 +167,27 @@ body {
     border-color: transparent;
 }
 
-.login-button {
+.navigation-buttons {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
-    margin-top: 2rem;
-
-    position: absolute;
-    top: 600px;
-    right: 50px;
+    justify-content: space-between;
+    margin-top: 3rem;
 }
 
-.login-button button {
+.navigation-buttons button {
     font-size: 1rem;
     font-weight: 600;
     color: #ffffff;
     border: none;
     background: linear-gradient(135deg, #4f46e5, #7c3aed);
-    padding: 0.5rem 1.3rem;
-    border-radius: 2px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 3px;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.login-button button:hover {
+.navigation-buttons button:hover {
     transform: scale(1.05);
-}
-
-.login-button button a {
-    text-decoration: none;
-    font-weight: 500;
-    color: #fff;
 }
 
 
