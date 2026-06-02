@@ -36,7 +36,9 @@ body {
 }
 
 .form-image img {
-    width: 35rem;
+    width:90rem;
+    height: 68rem;
+    margin-left: -120px;
 }
 
 
