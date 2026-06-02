@@ -196,3 +196,96 @@ body {
     font-weight: 500;
     color: #fff;
 }
+
+
+
+
+@media screen and (max-width: 1024px) {
+
+    .container {
+        width: 95%;
+        height: auto;
+    }
+
+    .form-image img {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+    }
+
+    .form-header h1 {
+        font-size: 2rem;
+    }
+
+    .form-logo {
+        right: 20px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+
+    body {
+        height: auto;
+        padding: 1rem;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .form-image {
+        display: none;
+    }
+
+    .form {
+        width: 100%;
+        padding: 2rem 1.5rem;
+    }
+
+    .form-logo {
+        position: static;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-logo img {
+        max-width: 150px;
+    }
+
+    .form-header {
+        margin-bottom: 2rem;
+    }
+
+    .form-header h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .input-box {
+        width: 100%;
+    }
+
+    .steps {
+        max-width: 100%;
+    }
+
+    .login-button {
+        position: static;
+        width: 100%;
+        margin-top: 2rem;
+        justify-content: center;
+    }
+
+    .login-button button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
