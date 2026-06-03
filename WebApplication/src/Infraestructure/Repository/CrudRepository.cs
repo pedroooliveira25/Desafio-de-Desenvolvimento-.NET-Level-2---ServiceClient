@@ -37,9 +37,4 @@ public class CrudRepository<T> : ICrudRepository<T> where T : class
 
         await _collection.DeleteOneAsync(filter);
     }
-
-    public Task SaveChangesAsync()
-    {
-        return Task.CompletedTask;
-    }
 }

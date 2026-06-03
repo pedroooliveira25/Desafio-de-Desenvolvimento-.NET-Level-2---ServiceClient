@@ -1,11 +1,16 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.SqlTypes;
 using System.Net.Mail;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+
 public class DataBasic : Notification
 
 {
     [Column("Id")]
+    [BsonRepresentation(BsonType.String)]
     public Guid Id { get; set; }
+  
     [Column("Name")]
     public string Name { get; set; }
 

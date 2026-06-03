@@ -4,5 +4,4 @@ public interface ICrudRepository<T>
     Task<T> GetByIdAsync(Guid id);
     Task UpdateAsync(T entity);
     Task DeleteAsync(Guid id);
-    Task SaveChangesAsync();
 }

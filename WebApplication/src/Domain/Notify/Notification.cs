@@ -1,7 +1,9 @@
-using System.ComponentModel;
+
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using MongoDB.Bson.Serialization.Attributes;
 
+[BsonIgnoreExtraElements]
 public class Notification
 {
     public Notification()

@@ -1,13 +1,11 @@
-services:
-  mongodb:
-    image: mongo:latest
-    container_name: mongodb
-    ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_DATABASE: MyAppDb
-    volumes:
-      - mongo_data:/data/db
+version: '3.9'
 
-volumes:
-  mongo_data:
+services:
+  api:
+    build: .
+    container_name: my-api
+    ports:
+      - "8080:8080"
+    environment:
+      - MongoDb__ConnectionString=mongodb+srv://eupedrohfo_db_user:Asdw0258qwe%40@teste.f6oi1p6.mongodb.net/
+      - MongoDb__DatabaseName=Teste
