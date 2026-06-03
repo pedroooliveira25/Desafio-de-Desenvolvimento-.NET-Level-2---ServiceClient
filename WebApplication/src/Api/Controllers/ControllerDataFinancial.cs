@@ -16,7 +16,7 @@ public class ControllerDataFinancial : ControllerBase
         _crudRepository = crudRepository;
     }
   
-    [Authorize]
+
     [HttpPost("set-finance")]
     public async Task<IActionResult> SetFinance ([FromBody] DataFinancialDTOs request)
     {
@@ -26,7 +26,7 @@ public class ControllerDataFinancial : ControllerBase
         var createFinancial = await _createFiancial.Execute(request);  
         return Ok(createFinancial);
     }
-    [Authorize]
+  
     [HttpGet("{id}")]
 
      public async Task<IActionResult> GetById(Guid id)
@@ -40,7 +40,7 @@ public class ControllerDataFinancial : ControllerBase
     }
 
 
-    [Authorize]
+
     [HttpPut("{id}")]
      public async Task<IActionResult> Update (Guid id, [FromBody] DataFinancialDTOs request)
     {
@@ -61,7 +61,6 @@ public class ControllerDataFinancial : ControllerBase
 
     }
 
-    [Authorize]
     [HttpDelete("{id}")]
      public async Task<IActionResult> Delete (Guid id)
     {

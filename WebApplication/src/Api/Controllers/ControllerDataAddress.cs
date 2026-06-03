@@ -16,7 +16,7 @@ public class ControllerDataAddress: ControllerBase
         _crudRepository = crudRepository;
     }
   
-    [Authorize]
+   
     [HttpPost()]
     public async Task<IActionResult> SetAddress ([FromBody] DataAddressDTOs request)
     {
@@ -26,7 +26,7 @@ public class ControllerDataAddress: ControllerBase
         var createAddress = await _createDataAddress.Execute(request);  
         return Ok(createAddress);
     }
-    [Authorize]
+  
     [HttpGet("{id}")]
 
      public async Task<IActionResult> GetById(Guid id)
@@ -40,7 +40,7 @@ public class ControllerDataAddress: ControllerBase
     }
 
 
-    [Authorize]
+
     [HttpPut("{id}")]
      public async Task<IActionResult> Update (Guid id, [FromBody] DataAddressDTOs request)
     {
@@ -64,7 +64,7 @@ public class ControllerDataAddress: ControllerBase
         return NoContent();
     }
 
-    [Authorize]
+
     [HttpDelete("{id}")]
      public async Task<IActionResult> Delete (Guid id)
     {

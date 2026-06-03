@@ -4,7 +4,7 @@ public class RequestPasswordDtos
 {
 
     [Required]
-    public string Password {get; private set;} 
+    public string Password {get;  set;} 
     [Required]
-    public string ConfirmPassword {get; private set;} 
+    public string ConfirmPassword {get;  set;} 
 }

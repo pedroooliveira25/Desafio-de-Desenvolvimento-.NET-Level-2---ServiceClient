@@ -4,16 +4,16 @@ public class DataBasicDTOs
 
 {
     [Required]
-    public string Name { get; private set; }
+    public string Name { get;  set; }
     [Required]
-    public DateTime DateOfBith { get; private set; }
+    public DateTime DateOfBith { get; set; }
     [Required]
-    public string Cpf { get; private set; }
+    public string Cpf { get; set; }
     [Required]
-    public string Email { get; private set; }
+    public string Email { get; set; }
     [Required]
-    public string Phone { get; private set; }
-    public Guid Id { get; private set; }
+    public string Phone { get; set; }
+    public Guid Id { get; set; }
     
 
 }

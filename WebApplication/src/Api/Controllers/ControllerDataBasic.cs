@@ -16,7 +16,7 @@ public class ControllerDataBasic: ControllerBase
         _crudRepository = crudRepository;
     }
   
-    [Authorize]
+
     [HttpPost("set-dataBasic")]
     public async Task<IActionResult> SetDataBasic ([FromBody] DataBasicDTOs request)
     {
@@ -26,7 +26,7 @@ public class ControllerDataBasic: ControllerBase
         var createDataBasic = await _createDataBasic.Execute(request);  
         return Ok(createDataBasic);
     }
-    [Authorize]
+
     [HttpGet("{id}")]
 
      public async Task<IActionResult> GetById(Guid id)
@@ -40,7 +40,7 @@ public class ControllerDataBasic: ControllerBase
     }
 
 
-    [Authorize]
+
     [HttpPut("{id}")]
      public async Task<IActionResult> Update (Guid id, [FromBody] DataBasicDTOs request)
     {
@@ -63,7 +63,7 @@ public class ControllerDataBasic: ControllerBase
         return NoContent();
     }
 
-    [Authorize]
+  
     [HttpDelete("{id}")]
      public async Task<IActionResult> Delete (Guid id)
     {

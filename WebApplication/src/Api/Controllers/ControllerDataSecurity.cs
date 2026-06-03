@@ -18,7 +18,7 @@ public class ControllerPassword : ControllerBase
         _crudRepository = crudRepository;
     }
   
-    [Authorize]
+ 
     [HttpPost("set-password")]
     public async Task<IActionResult> SetPassword ([FromBody] RequestPasswordDtos request)
     {
@@ -28,7 +28,7 @@ public class ControllerPassword : ControllerBase
         var createPassword = await _createPassword.Execute(request);  
         return Ok(createPassword);
     }
-    [Authorize]
+
     [HttpGet("{id}")]
 
      public async Task<IActionResult> GetById(Guid id)
@@ -42,7 +42,7 @@ public class ControllerPassword : ControllerBase
     }
 
 
-    [Authorize]
+
     [HttpPut("{id}")]
      public async Task<IActionResult> Update (Guid id, [FromBody] RequestPasswordDtos request)
     {
@@ -62,7 +62,7 @@ public class ControllerPassword : ControllerBase
 
     }
 
-    [Authorize]
+
     [HttpDelete("{id}")]
      public async Task<IActionResult> Delete (Guid id)
     {
