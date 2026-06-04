@@ -1,22 +1,26 @@
 using System.ComponentModel.DataAnnotations;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
 
 public class DataAddressDTOs
 
 {
     [Required]
-    public string Road { get; private set; }
+    public string Road { get;  set; }
     [Required]
-    public string District { get; private set; }
+    public string District { get;  set; }
     [Required]
-    public string City { get; private set; }
+    public string City { get;  set; }
     [Required]
-    public string Stage { get; private set; }
+    public string Stage { get;  set; }
     [Required]
-    public int Cep { get; private set; }
+    public int Cep { get;  set; }
     [Required]
-    public int Number { get; private set; }
+    public int Number { get;  set; }
     [Required]
-    public Guid Id { get; private set; }
+    [BsonId]
+    [BsonRepresentation(BsonType.String)]
+     public Guid Id { get;  set; }
 
 }
 

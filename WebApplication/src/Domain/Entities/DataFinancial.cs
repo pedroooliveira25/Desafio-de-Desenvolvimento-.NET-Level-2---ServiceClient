@@ -1,5 +1,7 @@
 
 using System.ComponentModel.DataAnnotations.Schema;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 public class DataFinancial : Notification
 {
     [Column("Finance")]
@@ -7,9 +9,8 @@ public class DataFinancial : Notification
     [Column("Patrimony")]
     public decimal Patrimony { get; set; }
     [Column("Id")]
+    [BsonRepresentation(BsonType.String)]
     public Guid Id { get; set; }
-
-
     public DataFinancial(decimal finance, decimal patrimony, Guid id)
     {
         ValidateInfo(finance, patrimony, id);

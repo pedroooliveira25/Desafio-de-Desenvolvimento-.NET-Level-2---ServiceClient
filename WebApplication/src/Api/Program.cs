@@ -6,6 +6,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 
 builder.Services.AddSingleton<MongoClient>(sp =>
 {
@@ -13,6 +14,8 @@ builder.Services.AddSingleton<MongoClient>(sp =>
 
     var settings = MongoClientSettings.FromConnectionString(
         config["MongoDb:ConnectionString"]);
+
+    
 
     return new MongoClient(settings);
 });

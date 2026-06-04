@@ -1,7 +1,10 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 public class DataAddress : Notification
 {
     [Column("Id")]
+    [BsonRepresentation(BsonType.String)]
     public Guid Id {get; set;} 
     [Column("Road")]
     public string Road { get; set; }

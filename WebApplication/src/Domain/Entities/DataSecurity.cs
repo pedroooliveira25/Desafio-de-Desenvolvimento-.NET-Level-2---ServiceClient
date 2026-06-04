@@ -1,8 +1,11 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 public class DataSecurity : Notification
 {   
     [Column("Id")]
+    [BsonRepresentation(BsonType.String)]
     public Guid Id {get; set;} 
     [Column("Password")]
     public string PasswordKey{get; set;}

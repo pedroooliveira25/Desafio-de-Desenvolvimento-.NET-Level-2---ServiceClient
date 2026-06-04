@@ -9,6 +9,5 @@ public class DataFinancialDTOs
     [Required]
     public  Guid Id { get; set; }
 
-
 }
    

@@ -20,15 +20,22 @@ public class ControllerPassword : ControllerBase
   
  
     [HttpPost("set-password")]
-    public async Task<IActionResult> SetPassword ([FromBody] RequestPasswordDtos request)
+   public async Task<IActionResult> SetPassword([FromBody] RequestPasswordDtos request)
+{
+    try
     {
-         if (request == null)
+        if (request == null)
             return BadRequest("Password is invalid");
 
-        var createPassword = await _createPassword.Execute(request);  
-        return Ok(createPassword);
-    }
+        var result = await _createPassword.Execute(request);
 
+        return Ok(result);
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, ex.Message);
+    }
+}
     [HttpGet("{id}")]
 
      public async Task<IActionResult> GetById(Guid id)

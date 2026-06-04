@@ -17,7 +17,7 @@ public class ControllerDataBasic: ControllerBase
     }
   
 
-    [HttpPost("set-dataBasic")]
+    [HttpPost]
     public async Task<IActionResult> SetDataBasic ([FromBody] DataBasicDTOs request)
     {
          if (request == null)
