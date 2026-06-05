@@ -17,7 +17,7 @@ public class ControllerDataFinancial : ControllerBase
     }
   
 
-    [HttpPost("set-finance")]
+    [HttpPost]
     public async Task<IActionResult> SetFinance ([FromBody] DataFinancialDTOs request)
     {
          if (request == null)

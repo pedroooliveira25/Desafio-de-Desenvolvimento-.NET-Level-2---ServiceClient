@@ -19,7 +19,7 @@ public class ControllerPassword : ControllerBase
     }
   
  
-    [HttpPost("set-password")]
+    [HttpPost]
    public async Task<IActionResult> SetPassword([FromBody] RequestPasswordDtos request)
 {
     try

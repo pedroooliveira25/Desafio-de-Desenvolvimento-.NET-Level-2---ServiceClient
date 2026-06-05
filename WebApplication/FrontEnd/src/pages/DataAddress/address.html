@@ -16,28 +16,28 @@
         <div class="form-image">
             <img src="assets/img/mapa-3d.png" alt="logo">
         </div>
-       
+
         <div class="form">
 
-            <form action="../DataSecurity/seguranca.html">
-                 <div class="steps">
+            <form id="step3">
+                <div class="steps">
                     <a href="../DataBasic/index.html" class="step">1</a>
                     <a href="../DataFinancial/financeiro.html" class="step">2</a>
                     <div class="step active">3</div>
                     <div class="step">4</div>
                     <div class="step">5</div>
                 </div>
-            
+
                 <div class="form-header">
 
                     <div class="title">
                         <h1>Dados Residenciais</h1>
                     </div>
 
-                <div class="form-logo">
-                    <img src="assets/img/LogoFundo.png" alt="logo">
-                </div>
-       
+                    <div class="form-logo">
+                        <img src="assets/img/LogoFundo.png" alt="logo">
+                    </div>
+
 
                 </div>
 
@@ -45,77 +45,39 @@
                 <div class="input-group">
 
                     <div class="input-box">
-                        <label for="Rua">Rua:</label>
-                        <input 
-                            id="rua"
-                            name="rua"
-                            type="text"
-                            placeholder="Digite seu endereço..."
-                            required
-                        >
-                    </div>
-                     <div class="input-box">
-                        <label for="cpf">Número:</label>
-                        <input 
-                            id="numero"
-                            name="numero"
-                            type="text"
-                            placeholder="N°"
-                            required
-                        >
-                    </div>
-                     <div class="input-box">
-                        <label for="bairro">Bairro:</label>
-                        <input 
-                            id="bairro"
-                            name="bairro"
-                            type="text"
-                            placeholder="Digite seu bairro..."
-                            required
-                        >
-                    </div>
-                     <div class="input-box">
-                        <label for="cidade">Cidade:</label>
-                        <input 
-                            id="cidade"
-                            name="cidade"
-                            type="cidade"
-                            placeholder="Cidade..."
-                            required
-                        >
+                        <label for="rua">Rua:</label>
+                        <input id="rua" name="rua" type="text" placeholder="Digite seu endereço..." required>
                     </div>
                     <div class="input-box">
-                        <label for="cpf">Estado:</label>
-                        <input 
-                            id="cpf"
-                            name="cpf"
-                            type="text"
-                            placeholder="Digite seu renda..."
-                            required
-                        >
+                        <label for="numero">Número:</label>
+                        <input id="numero" name="numero" type="text" placeholder="N°" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="bairro">Bairro:</label>
+                        <input id="bairro" name="bairro" type="text" placeholder="Digite seu bairro..." required>
+                    </div>
+                    <div class="input-box">
+                        <label for="cidade">Cidade:</label>
+                        <input id="cidade" name="cidade" type="text" placeholder="Cidade..." required>
+                    </div>
+                    <div class="input-box">
+                        <label for="estado">Estado:</label>
+                        <input id="estado" name="estado" type="text" placeholder="Digite seu estado..." required>
                     </div>
 
                     <div class="input-box">
                         <label for="cep">CEP:</label>
-                        <input 
-                            id="cep"
-                            name="cep"
-                            type="text"
-                            placeholder="Digite seu CEP..."
-                            required
-                        >
+                        <input id="cep" name="cep" type="text" placeholder="Digite seu CEP..." required>
                     </div>
 
                 </div>
                 <div class="navigation-buttons">
 
-                    <button
-                        type="button"
-                        onclick="history.back()">
+                    <button type="button" onclick="history.back()">
                         Voltar
                     </button>
 
-                    <button type="submit">Próximo</button>
+                    <button type="button" id="btnNext">Próximo</button>
 
                 </div>
 
@@ -124,7 +86,7 @@
         </div>
 
     </div>
-
+    <script src="dataAddress.js"></script>
 </body>
 
 </html>

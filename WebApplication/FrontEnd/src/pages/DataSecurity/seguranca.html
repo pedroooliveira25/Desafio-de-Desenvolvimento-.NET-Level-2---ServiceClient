@@ -19,7 +19,7 @@
 
         <div class="form">
 
-            <form action="../Validacao/validacao.html">
+            <form id="step4">
                 <div class="steps">
                     <a href="../DataBasic/index.html" class="step">1</a>
                     <a href="../DataFinancial/financeiro.html" class="step">2</a>
@@ -46,12 +46,14 @@
 
                     <div class="input-box">
                         <label for="senha">Senha:</label>
-                        <input id="senha" name="rua" type="password" placeholder="Digite sua melhor senha..." required>
+                        <input id="senha" name="senha" type="password" placeholder="Digite sua melhor senha..."
+                            required>
 
                     </div>
                     <div class="input-box">
                         <label for="confirma">Confirmar senha:</label>
-                        <input id="confirma" name="confirma" type="password" placeholder="Confirme sua senha!" required>
+                        <input id="confirma" name="confirmaSenha" type="password" placeholder="Confirme sua senha!"
+                            required>
                     </div>
                     <div class="navigation-buttons">
 
@@ -60,7 +62,7 @@
                         </button>
 
                         <div class="login-button">
-                            <button type="submit">Próximo</button>
+                            <button type="button" id="btnNext">Enviar</button>
                         </div>
 
                     </div>

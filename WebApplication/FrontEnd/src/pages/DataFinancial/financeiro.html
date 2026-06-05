@@ -19,7 +19,7 @@
 
         <div class="form">
 
-            <form action="../DataAddress/address.html">
+            <form id="step2">
                 <div class="steps">
                     <a href="../DataBasic/index.html" class="step">1</a>
                     <div class="step active">2</div>
@@ -29,42 +29,29 @@
                 </div>
 
                 <div class="form-header">
-
-                    <div class="title">
-                        <h1>Dados Financeiros</h1>
-                    </div>
-
-                    <div class="form-logo">
-                        <img src="assets/img/LogoFundo.png" alt="logo">
-                    </div>
-
-
+                    <h1>Dados Financeiros</h1>
                 </div>
-
 
                 <div class="input-group">
 
                     <div class="input-box">
-                        <label for="name">Patrimônio:</label>
-                        <input id="patrimonio" name="patrimonio" type="text" placeholder="Digite seu patrimônio"
-                            required>
+                        <label>Patrimônio:</label>
+                        <input id="patrimonio" type="text">
                     </div>
 
                     <div class="input-box">
-                        <label for="renda">Renda:</label>
-                        <input id="renda" name="renda" type="text" placeholder="Digite seu renda" required>
+                        <label>Renda:</label>
+                        <input id="renda" type="text">
                     </div>
 
                 </div>
+
                 <div class="navigation-buttons">
 
-                    <button type="button" onclick="history.back()">
-                        Voltar
-                    </button>
+                    <button type="button" onclick="history.back()">Voltar</button>
 
+                    <button type="button" id="btnNext">Próximo</button>
 
-                    <div class="login-button">
-                        <button type="submit">Próximo</button>
                 </div>
 
             </form>
@@ -72,7 +59,7 @@
         </div>
 
     </div>
-
+    <script src="dataFinancial.js"></script>
 </body>
 
 </html>
