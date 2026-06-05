@@ -1,11 +1,15 @@
 document.getElementById("btnCadastrar").addEventListener("click", (e) => {
     e.preventDefault();
 
-    localStorage.setItem("name", document.getElementById("name").value);
-    localStorage.setItem("cpf", document.getElementById("cpf").value);
-    localStorage.setItem("email", document.getElementById("email").value);
-    localStorage.setItem("dateOfBirth", document.getElementById("dateOfBirth").value);
-    localStorage.setItem("phone", document.getElementById("phone").value);
+    const step1 = {
+        name: document.getElementById("name").value,
+        cpf: document.getElementById("cpf").value,
+        email: document.getElementById("email").value,
+        dateOfBirth: document.getElementById("dateOfBirth").value,
+        phone: document.getElementById("phone").value
+    };
+
+    localStorage.setItem("step1", JSON.stringify(step1));
 
     window.location.href = "../DataFinancial/financeiro.html";
 });

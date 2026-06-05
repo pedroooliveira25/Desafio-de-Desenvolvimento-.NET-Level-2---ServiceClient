@@ -1,12 +1,12 @@
 document.getElementById("btnNext").addEventListener("click", function () {
 
     const data = {
-        rua: document.getElementById("rua").value,
-        numero: document.getElementById("numero").value,
-        bairro: document.getElementById("bairro").value,
-        cidade: document.getElementById("cidade").value,
-        estado: document.getElementById("estado").value,
-        cep: document.getElementById("cep").value
+        Road: document.getElementById("rua").value,
+        District: document.getElementById("bairro").value,
+        City: document.getElementById("cidade").value,
+        Stage: document.getElementById("estado").value,
+        Cep: parseInt(document.getElementById("cep").value),
+        Number: parseInt(document.getElementById("numero").value)
     };
 
     localStorage.setItem("step3", JSON.stringify(data));

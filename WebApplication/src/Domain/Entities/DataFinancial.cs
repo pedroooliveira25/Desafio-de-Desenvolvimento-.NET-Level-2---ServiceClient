@@ -32,7 +32,6 @@ public class DataFinancial : Notification
             throw new Exception("Your finance is invalid");
         }
     }
-
     public void Update(decimal finance, decimal patrimony, Guid id)
     {
 

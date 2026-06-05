@@ -13,6 +13,7 @@ public class DataBasicDTOs
     public string Email { get; set; }
     [Required]
     public string Phone { get; set; }
+    [Required]
     public Guid Id { get; set; }
     
 

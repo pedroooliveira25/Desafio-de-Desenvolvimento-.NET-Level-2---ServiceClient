@@ -20,58 +20,62 @@
         <div class="form">
 
             <form id="step4">
+
                 <div class="steps">
                     <a href="../DataBasic/index.html" class="step">1</a>
                     <a href="../DataFinancial/financeiro.html" class="step">2</a>
                     <a href="../DataAddress/address.html" class="step">3</a>
-                    <div class="step  active">4</div>
+                    <div class="step active">4</div>
                     <div class="step">5</div>
                 </div>
 
                 <div class="form-header">
 
                     <div class="title">
-                        <h1>Dados de segurança</h1>
+                        <h1>Security Data</h1>
                     </div>
 
                     <div class="form-logo">
                         <img src="assets/img/LogoFundo.png" alt="logo">
                     </div>
 
-
                 </div>
-
 
                 <div class="input-group">
 
                     <div class="input-box">
-                        <label for="senha">Senha:</label>
-                        <input id="senha" name="senha" type="password" placeholder="Digite sua melhor senha..."
-                            required>
-
+                        <label for="senha">Password:</label>
+                        <input id="senha" name="senha" type="password"
+                            placeholder="Enter your best password..." required>
                     </div>
+
                     <div class="input-box">
-                        <label for="confirma">Confirmar senha:</label>
-                        <input id="confirma" name="confirmaSenha" type="password" placeholder="Confirme sua senha!"
-                            required>
+                        <label for="confirma">Confirm Password:</label>
+                        <input id="confirma" name="confirmaSenha" type="password"
+                            placeholder="Confirm your password!" required>
                     </div>
-                    <div class="navigation-buttons">
 
-                        <button type="button" onclick="history.back()">
-                            Voltar
-                        </button>
+                </div>
 
-                        <div class="login-button">
-                            <button type="button" id="btnNext">Enviar</button>
-                        </div>
+                <div class="navigation-buttons">
 
+                    <button type="button" onclick="history.back()">
+                        Back
+                    </button>
+
+                    <div class="login-button">
+                        <button type="button" id="btnNext">Submit</button>
                     </div>
+
+                </div>
 
             </form>
 
         </div>
 
     </div>
+
+    <script src="dataSecurity.js"></script>
 
 </body>
 

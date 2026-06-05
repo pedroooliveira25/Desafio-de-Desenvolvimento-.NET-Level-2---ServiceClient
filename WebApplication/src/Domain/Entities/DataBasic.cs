@@ -51,7 +51,7 @@ public class DataBasic : Notification
 
     public bool ValidateNumber(string phone)
     {
-        if (!ValidatePropertiesString(phone, "phone") || phone.Length == 11)
+        if (!ValidatePropertiesString(phone, "phone") && phone.Length == 11)
         {
             return false;
         }
@@ -85,15 +85,18 @@ public class DataBasic : Notification
         }
         return true;
     }
-    public void ValidateCpf(string cpf)
-    {
-        ValidatePropertiesString(cpf, "cpf");
+   public void ValidateCpf(string cpf)
+{
+    ValidatePropertiesString(cpf, "cpf");
 
-        if (cpf.Length > 11)
-        {
-            throw new Exception("Cpf invalide");
-        }
-    }
+    cpf = cpf.Replace(".", "").Replace("-", "").Trim();
+
+    if (cpf.Length != 11)
+        throw new Exception("CPF deve ter 11 dígitos");
+
+    if (!cpf.All(char.IsDigit))
+        throw new Exception("CPF inválido");
+}
 
     public void Update(string name, DateTime dateOfBirth, string cpf, string email, string phone, Guid id)
     {

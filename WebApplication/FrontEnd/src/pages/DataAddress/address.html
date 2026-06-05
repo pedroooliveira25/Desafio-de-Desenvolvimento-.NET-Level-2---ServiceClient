@@ -20,6 +20,7 @@
         <div class="form">
 
             <form id="step3">
+
                 <div class="steps">
                     <a href="../DataBasic/index.html" class="step">1</a>
                     <a href="../DataFinancial/financeiro.html" class="step">2</a>
@@ -31,53 +32,56 @@
                 <div class="form-header">
 
                     <div class="title">
-                        <h1>Dados Residenciais</h1>
+                        <h1>Residential Data</h1>
                     </div>
 
                     <div class="form-logo">
                         <img src="assets/img/LogoFundo.png" alt="logo">
                     </div>
 
-
                 </div>
-
 
                 <div class="input-group">
 
                     <div class="input-box">
-                        <label for="rua">Rua:</label>
-                        <input id="rua" name="rua" type="text" placeholder="Digite seu endereço..." required>
-                    </div>
-                    <div class="input-box">
-                        <label for="numero">Número:</label>
-                        <input id="numero" name="numero" type="text" placeholder="N°" required>
-                    </div>
-                    <div class="input-box">
-                        <label for="bairro">Bairro:</label>
-                        <input id="bairro" name="bairro" type="text" placeholder="Digite seu bairro..." required>
-                    </div>
-                    <div class="input-box">
-                        <label for="cidade">Cidade:</label>
-                        <input id="cidade" name="cidade" type="text" placeholder="Cidade..." required>
-                    </div>
-                    <div class="input-box">
-                        <label for="estado">Estado:</label>
-                        <input id="estado" name="estado" type="text" placeholder="Digite seu estado..." required>
+                        <label for="rua">Street:</label>
+                        <input id="rua" name="rua" type="text" placeholder="Enter your address..." required>
                     </div>
 
                     <div class="input-box">
-                        <label for="cep">CEP:</label>
-                        <input id="cep" name="cep" type="text" placeholder="Digite seu CEP..." required>
+                        <label for="numero">Number:</label>
+                        <input id="numero" name="numero" type="text" placeholder="No." required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="bairro">Neighborhood:</label>
+                        <input id="bairro" name="bairro" type="text" placeholder="Enter your neighborhood..." required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="cidade">City:</label>
+                        <input id="cidade" name="cidade" type="text" placeholder="City..." required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="estado">State:</label>
+                        <input id="estado" name="estado" type="text" placeholder="Enter your state..." required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="cep">ZIP Code:</label>
+                        <input id="cep" name="cep" type="text" placeholder="Enter your ZIP code..." required>
                     </div>
 
                 </div>
+
                 <div class="navigation-buttons">
 
                     <button type="button" onclick="history.back()">
-                        Voltar
+                        Back
                     </button>
 
-                    <button type="button" id="btnNext">Próximo</button>
+                    <button type="button" id="btnNext">Next</button>
 
                 </div>
 
@@ -86,7 +90,9 @@
         </div>
 
     </div>
+
     <script src="dataAddress.js"></script>
+
 </body>
 
 </html>

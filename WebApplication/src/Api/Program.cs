@@ -6,6 +6,21 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy
+            .WithOrigins(
+                "http://127.0.0.1:5500",
+                "http://localhost:5500"
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 
 builder.Services.AddSingleton<MongoClient>(sp =>
@@ -15,11 +30,8 @@ builder.Services.AddSingleton<MongoClient>(sp =>
     var settings = MongoClientSettings.FromConnectionString(
         config["MongoDb:ConnectionString"]);
 
-    
-
     return new MongoClient(settings);
 });
-
 
 builder.Services.AddSingleton<IMongoDatabase>(sp =>
 {
@@ -42,7 +54,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseHttpsRedirection();
+app.UseCors("AllowFrontend");
 
 app.MapControllers();
 
