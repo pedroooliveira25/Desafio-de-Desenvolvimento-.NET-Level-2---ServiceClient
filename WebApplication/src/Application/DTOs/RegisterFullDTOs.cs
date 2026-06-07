@@ -4,4 +4,7 @@ public class RegisterFullDTO
     public DataFinancialDTOs Financial { get; set; }
     public DataAddressDTOs Address { get; set; }
     public RequestPasswordDtos Security { get; set; }
+
+ 
 }
+
