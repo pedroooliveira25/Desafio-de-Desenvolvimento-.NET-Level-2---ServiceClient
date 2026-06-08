@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
@@ -17,3 +18,18 @@
   </ItemGroup>
 
 </Project>
+=======
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+</Project>
+>>>>>>> 086ab88488b8b7d54682e33e8d29d9556570e42e
