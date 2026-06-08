@@ -167,9 +167,9 @@ A escolha dessa abordagem visa seguir boas práticas de mercado, garantindo que 
 Durante o desenvolvimento, foi considerado que a combinação de diferentes estratégias de autenticação e segurança deve ser feita de forma estruturada, pois a mistura incorreta desses conceitos pode dificultar o processo de serialização e validação dos dados criptográficos.
 
 ## Processo de comunicação (Rascunhos)
-![racunho](./src/img/1.png)
-![racunho](./src/img/2.png)
-![racunho](./src/img/3.png)
+![racunho](./WebApplication/src/img/1.png)
+![racunho](./WebApplication/src/img/2.png)
+![racunho](./WebApplication/src/img/3.png)
 
 ## GitHub
 
