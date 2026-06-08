@@ -9,16 +9,20 @@ public class RegisterController : ControllerBase
     private readonly CreateAddress _createAddress;
     private readonly CreatePassword _createPassword;
 
+    private readonly RabbitPublisher _publisher;
+
     public RegisterController(
         CreateDataBasic createDataBasic,
         CreateFinancial createFinancial,
         CreateAddress createAddress,
-        CreatePassword createPassword)
+        CreatePassword createPassword,
+        RabbitPublisher createPublisher)
     {
         _createDataBasic = createDataBasic;
         _createFinancial = createFinancial;
         _createAddress = createAddress;
         _createPassword = createPassword;
+        _publisher = createPublisher;
     }
 
     [HttpPost("full")]
@@ -38,6 +42,11 @@ public class RegisterController : ControllerBase
 
 
         var password = await _createPassword.Execute(request.Security);
+
+        _publisher.PublishCadastroEmail(
+        request.DataBasic.Name,
+        request.DataBasic.Email
+);
 
         return Ok(new
         {

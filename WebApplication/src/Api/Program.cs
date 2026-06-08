@@ -7,6 +7,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -49,10 +50,25 @@ builder.Services.AddScoped(typeof(ICrudRepository<>), typeof(CrudRepository<>));
 
 builder.WebHost.UseUrls("http://0.0.0.0:8080");
 
+builder.Services.AddSingleton<RabbitPublisher>();
+
+builder.Services.AddSingleton(
+    new EmailService(
+        builder.Configuration["SendGrid:ApiKey"]
+    )
+);
+
+builder.Services.AddSingleton<RabbitConsumer>();
+
 var app = builder.Build();
+
+var consumer = app.Services.GetRequiredService<RabbitConsumer>();
+
+consumer.Start();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
 
 app.UseCors("AllowFrontend");
 
