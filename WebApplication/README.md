@@ -185,5 +185,5 @@ Ao concluir o projeto, percebo o vasto mar de informações que ainda tenho pela
 
 Foi uma experiência muito interessante ao longo do desenvolvimento. Aprendi a estruturar ciclos de forma mais lógica e a entender como uma aplicação bem construída — desde as nomenclaturas até funções simples — pode facilitar muito o desenvolvimento.
 
-Mesmo tendo concluído esses pequenos desafios, pretendo continuar me desafiando e enfrentando novos problemas e projetos. É um processo contínuo de aprendizado.
+Mesmo tendo concluído esses pequenos desafios, pretendo continuar me desafiando e enfrentando novos problemas e projetos. É um processo contínuo de aprendizado..
 
